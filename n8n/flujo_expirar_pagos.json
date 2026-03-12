@@ -1,0 +1,208 @@
+{
+  "name": "Expirar Pagos Vencidos",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 2
+            }
+          ]
+        }
+      },
+      "id": "a1b2c3d4-0001-0001-0001-000000000001",
+      "name": "Cada 2 Minutos",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.SUPABASE_URL }}/rest/v1/rpc/expirar_pagos_vencidos",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $env.SUPABASE_SERVICE_KEY }}"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $env.SUPABASE_SERVICE_KEY }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Prefer",
+              "value": "return=representation"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": []
+        },
+        "options": {
+          "response": {
+            "response": {
+              "neverError": true
+            }
+          }
+        }
+      },
+      "id": "a1b2c3d4-0002-0002-0002-000000000002",
+      "name": "Ejecutar expirar_pagos_vencidos",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [480, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "cond-001",
+              "leftValue": "={{ Array.isArray($json) ? $json.length : 0 }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "a1b2c3d4-0003-0003-0003-000000000003",
+      "name": "¿Hay citas canceladas?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [720, 300]
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "={{ $json }}",
+        "options": {}
+      },
+      "id": "a1b2c3d4-0004-0004-0004-000000000004",
+      "name": "Separar por cita",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [960, 200]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=http://localhost:3000/webhook/notificar",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"evento\": \"pago_expirado\",\n  \"cita_id\": \"{{ $json.cita_id }}\",\n  \"cliente_id\": \"{{ $json.cliente_id }}\",\n  \"telefono\": \"{{ $json.telefono }}\",\n  \"nombre\": \"{{ $json.nombre }}\",\n  \"fecha_cita\": \"{{ $json.fecha_hora }}\",\n  \"monto_anticipo\": {{ $json.monto }},\n  \"link_pago\": \"{{ $json.link }}\"\n}",
+        "options": {}
+      },
+      "id": "a1b2c3d4-0005-0005-0005-000000000005",
+      "name": "Notificar cita cancelada",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1200, 200]
+    },
+    {
+      "parameters": {},
+      "id": "a1b2c3d4-0006-0006-0006-000000000006",
+      "name": "Sin vencidos — no hacer nada",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [960, 420]
+    }
+  ],
+  "connections": {
+    "Cada 2 Minutos": {
+      "main": [
+        [
+          {
+            "node": "Ejecutar expirar_pagos_vencidos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ejecutar expirar_pagos_vencidos": {
+      "main": [
+        [
+          {
+            "node": "¿Hay citas canceladas?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "¿Hay citas canceladas?": {
+      "main": [
+        [
+          {
+            "node": "Separar por cita",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Sin vencidos — no hacer nada",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Separar por cita": {
+      "main": [
+        [
+          {
+            "node": "Notificar cita cancelada",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": ""
+  },
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "tattoo-bot"
+  },
+  "tags": [
+    {
+      "name": "pagos",
+      "createdAt": "2026-03-04T00:00:00.000Z",
+      "updatedAt": "2026-03-04T00:00:00.000Z"
+    }
+  ]
+}

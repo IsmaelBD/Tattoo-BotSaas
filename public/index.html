@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SaasNegocio — Automatización de Citas para Estudios de Tatuajes</title>
+  <meta name="description" content="Plataforma SaaS que automatiza la gestión de citas en estudios de tatuajes mediante inteligencia artificial, WhatsApp y pagos en línea." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { 50:'#fdf4ff', 100:'#fae8ff', 400:'#c084fc', 500:'#a855f7', 600:'#9333ea', 700:'#7e22ce', 900:'#3b0764' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .gradient-hero { background: linear-gradient(135deg, #0f0f0f 0%, #1a0533 50%, #0f0f0f 100%); }
+    .card-glow     { box-shadow: 0 0 0 1px rgba(168,85,247,0.15), 0 4px 24px rgba(168,85,247,0.08); }
+    .legal-section h3   { font-size: 1rem; font-weight: 700; color: #e5e7eb; margin-bottom: .5rem; margin-top: 1.5rem; }
+    .legal-section p,
+    .legal-section li   { font-size: .875rem; line-height: 1.75; color: #9ca3af; }
+    .legal-section ul   { list-style: disc; padding-left: 1.5rem; }
+    .legal-section a    { color: #c084fc; }
+    .legal-section a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body class="bg-gray-950 text-gray-100 font-sans antialiased">
+
+  <!-- ──────────────────────────── NAVBAR ───────────────────────────────── -->
+  <header class="sticky top-0 z-50 bg-gray-950/90 backdrop-blur border-b border-gray-800">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#inicio" class="text-2xl font-black tracking-tight text-white">
+        Saas<span class="text-brand-500">Negocio</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-8 text-sm text-gray-400">
+        <a href="#servicios"     class="hover:text-white transition">Servicios</a>
+        <a href="#como-funciona" class="hover:text-white transition">Cómo funciona</a>
+        <a href="#precios"       class="hover:text-white transition">Precios</a>
+        <a href="#contacto"      class="hover:text-white transition">Contacto</a>
+      </nav>
+      <a href="#contacto" class="bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition">
+        Solicitar demo
+      </a>
+    </div>
+  </header>
+
+  <!-- ────────────────────────────── HERO ──────────────────────────────── -->
+  <section id="inicio" class="gradient-hero py-28 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <span class="inline-block bg-brand-900/60 text-brand-400 text-xs font-semibold px-4 py-1.5 rounded-full border border-brand-700/40 mb-6 uppercase tracking-widest">
+        Plataforma SaaS
+      </span>
+      <h1 class="text-4xl md:text-6xl font-black text-white leading-tight mb-6">
+        Automatiza tu estudio de tatuajes<br class="hidden md:block" />
+        <span class="text-brand-500">con inteligencia artificial</span>
+      </h1>
+      <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+        Gestiona citas, confirma reservaciones por WhatsApp y recibe anticipos de forma automática —
+        sin esfuerzo manual, sin citas perdidas.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#contacto" class="bg-brand-600 hover:bg-brand-700 text-white font-bold px-8 py-4 rounded-xl transition text-lg">
+          Comenzar ahora
+        </a>
+        <a href="#como-funciona" class="bg-gray-800 hover:bg-gray-700 text-white font-bold px-8 py-4 rounded-xl transition text-lg">
+          Ver cómo funciona
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────────── SERVICIOS ──────────────────────────── -->
+  <section id="servicios" class="py-24 px-6 bg-gray-950">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-black text-white mb-4">Nuestros servicios</h2>
+        <p class="text-gray-400 max-w-xl mx-auto">
+          SaasNegocio ofrece una plataforma SaaS diseñada exclusivamente para estudios de tatuajes
+          que quieren operar de forma profesional y automatizada.
+        </p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+
+        <div class="bg-gray-900 rounded-2xl p-8 card-glow">
+          <div class="w-12 h-12 bg-brand-900/50 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">Agendado por WhatsApp</h3>
+          <p class="text-gray-400 leading-relaxed">
+            Un asistente de inteligencia artificial atiende a tus clientes por WhatsApp las 24 horas,
+            recopila los datos de la cita y la agenda automáticamente en tu calendario.
+          </p>
+        </div>
+
+        <div class="bg-gray-900 rounded-2xl p-8 card-glow">
+          <div class="w-12 h-12 bg-brand-900/50 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">Gestión de agenda</h3>
+          <p class="text-gray-400 leading-relaxed">
+            Sincronización en tiempo real con Google Calendar. Bloqueo automático de horarios,
+            recordatorios al cliente y control total de tu disponibilidad desde un solo panel.
+          </p>
+        </div>
+
+        <div class="bg-gray-900 rounded-2xl p-8 card-glow">
+          <div class="w-12 h-12 bg-brand-900/50 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">Cobro de anticipos</h3>
+          <p class="text-gray-400 leading-relaxed">
+            El sistema genera automáticamente un link de pago seguro (Stripe) para que el cliente
+            pague su anticipo del 20% al momento de agendar, eliminando los no-shows.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="mt-12 bg-gray-900/50 border border-gray-800 rounded-2xl p-8 md:p-10">
+        <h3 class="text-xl font-bold text-white mb-4">¿Qué incluye la suscripción?</h3>
+        <ul class="grid md:grid-cols-2 gap-3 text-gray-400 text-sm">
+          <li class="flex items-start gap-3"><span class="text-brand-500 mt-0.5">✓</span> Asistente de IA vía WhatsApp Business</li>
+          <li class="flex items-start gap-3"><span class="text-brand-500 mt-0.5">✓</span> Sincronización con Google Calendar</li>
+          <li class="flex items-start gap-3"><span class="text-brand-500 mt-0.5">✓</span> Cobro de anticipos con links de pago seguros</li>
+          <li class="flex items-start gap-3"><span class="text-brand-500 mt-0.5">✓</span> Notificaciones automáticas al cliente y al artista</li>
+          <li class="flex items-start gap-3"><span class="text-brand-500 mt-0.5">✓</span> Panel de administración y reportes</li>
+          <li class="flex items-start gap-3"><span class="text-brand-500 mt-0.5">✓</span> Soporte técnico por correo electrónico</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────── CÓMO FUNCIONA ────────────────────────── -->
+  <section id="como-funciona" class="py-24 px-6 bg-gray-900/40">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-black text-white mb-4">Cómo funciona</h2>
+        <p class="text-gray-400">Tres pasos para automatizar tu estudio desde el primer día.</p>
+      </div>
+      <div class="space-y-10">
+        <div class="flex gap-6 items-start">
+          <div class="w-10 h-10 bg-brand-600 rounded-full flex items-center justify-center font-black text-white shrink-0 text-lg">1</div>
+          <div>
+            <h3 class="text-lg font-bold text-white mb-1">El cliente escribe por WhatsApp</h3>
+            <p class="text-gray-400">El asistente de IA saluda al cliente, le pregunta estilo, tamaño, zona y fecha disponible — todo de forma conversacional, como si fuera una persona real.</p>
+          </div>
+        </div>
+        <div class="flex gap-6 items-start">
+          <div class="w-10 h-10 bg-brand-600 rounded-full flex items-center justify-center font-black text-white shrink-0 text-lg">2</div>
+          <div>
+            <h3 class="text-lg font-bold text-white mb-1">Se genera el link de pago automáticamente</h3>
+            <p class="text-gray-400">Una vez confirmados los datos, el sistema crea una cita en el calendario y envía al cliente un link de pago seguro para que liquide el anticipo del 20% con tarjeta.</p>
+          </div>
+        </div>
+        <div class="flex gap-6 items-start">
+          <div class="w-10 h-10 bg-brand-600 rounded-full flex items-center justify-center font-black text-white shrink-0 text-lg">3</div>
+          <div>
+            <h3 class="text-lg font-bold text-white mb-1">Cita confirmada, anticipo recibido</h3>
+            <p class="text-gray-400">Al completarse el pago, el artista recibe una notificación, el evento queda en su Google Calendar y el cliente recibe la confirmación — todo en segundos, sin intervención manual.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ──────────────────────────── PRECIOS ─────────────────────────────── -->
+  <section id="precios" class="py-24 px-6 bg-gray-950">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-black text-white mb-4">Precios</h2>
+      <p class="text-gray-400 mb-14">Sin permanencia. Cancela cuando quieras.</p>
+      <div class="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto">
+
+        <div class="bg-gray-900 rounded-2xl p-8 card-glow text-left">
+          <p class="text-brand-400 text-sm font-semibold uppercase tracking-widest mb-2">Básico</p>
+          <p class="text-4xl font-black text-white mb-1">$799 <span class="text-lg text-gray-400 font-normal">MXN/mes</span></p>
+          <p class="text-gray-500 text-sm mb-6">Un solo artista / estudio</p>
+          <ul class="space-y-2 text-gray-400 text-sm mb-8">
+            <li class="flex gap-2"><span class="text-brand-500">✓</span> Asistente IA por WhatsApp</li>
+            <li class="flex gap-2"><span class="text-brand-500">✓</span> Google Calendar sincronizado</li>
+            <li class="flex gap-2"><span class="text-brand-500">✓</span> Cobro de anticipos online</li>
+            <li class="flex gap-2"><span class="text-brand-500">✓</span> Hasta 60 citas por mes</li>
+            <li class="flex gap-2"><span class="text-brand-500">✓</span> Soporte por correo</li>
+          </ul>
+          <a href="#contacto" class="block text-center bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 rounded-xl transition">
+            Solicitar acceso
+          </a>
+        </div>
+
+        <div class="bg-brand-900/30 border border-brand-700/40 rounded-2xl p-8 card-glow text-left relative overflow-hidden">
+          <div class="absolute top-4 right-4 bg-brand-600 text-white text-xs font-bold px-3 py-1 rounded-full">Popular</div>
+          <p class="text-brand-400 text-sm font-semibold uppercase tracking-widest mb-2">Pro</p>
+          <p class="text-4xl font-black text-white mb-1">$1,499 <span class="text-lg text-gray-400 font-normal">MXN/mes</span></p>
+          <p class="text-gray-500 text-sm mb-6">Hasta 3 artistas</p>
+          <ul class="space-y-2 text-gray-400 text-sm mb-8">
+            <li class="flex gap-2"><span class="text-brand-400">✓</span> Todo lo del plan Básico</li>
+            <li class="flex gap-2"><span class="text-brand-400">✓</span> Citas ilimitadas</li>
+            <li class="flex gap-2"><span class="text-brand-400">✓</span> Múltiples artistas/calendarios</li>
+            <li class="flex gap-2"><span class="text-brand-400">✓</span> Reportes y estadísticas</li>
+            <li class="flex gap-2"><span class="text-brand-400">✓</span> Soporte prioritario</li>
+          </ul>
+          <a href="#contacto" class="block text-center bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 rounded-xl transition">
+            Solicitar acceso
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ──────────────────────────── CONTACTO ────────────────────────────── -->
+  <section id="contacto" class="py-24 px-6 bg-gray-900/40">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-black text-white mb-4">Contacto</h2>
+        <p class="text-gray-400">
+          ¿Tienes preguntas, necesitas soporte o quieres una demo?
+          Llena el formulario y te respondemos en menos de 24 horas hábiles.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-5 gap-8">
+
+        <!-- Formulario -->
+        <div class="md:col-span-3 bg-gray-900 rounded-2xl p-8 card-glow">
+          <form action="https://formsubmit.co/saasnegocio@gmail.com" method="POST">
+            <!-- FormSubmit config -->
+            <input type="hidden" name="_subject"  value="Nuevo mensaje desde SaasNegocio.com" />
+            <input type="hidden" name="_captcha"  value="false" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="text"   name="_honey"    style="display:none" />
+
+            <div class="mb-5">
+              <label class="block text-sm font-semibold text-gray-300 mb-2" for="nombre">
+                Nombre completo <span class="text-red-400">*</span>
+              </label>
+              <input
+                id="nombre" name="nombre" type="text" required
+                placeholder="Tu nombre"
+                class="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-brand-500 transition text-sm"
+              />
+            </div>
+
+            <div class="mb-5">
+              <label class="block text-sm font-semibold text-gray-300 mb-2" for="email">
+                Correo electrónico <span class="text-red-400">*</span>
+              </label>
+              <input
+                id="email" name="email" type="email" required
+                placeholder="tu@correo.com"
+                class="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-brand-500 transition text-sm"
+              />
+            </div>
+
+            <div class="mb-6">
+              <label class="block text-sm font-semibold text-gray-300 mb-2" for="mensaje">
+                Mensaje <span class="text-red-400">*</span>
+              </label>
+              <textarea
+                id="mensaje" name="mensaje" rows="5" required
+                placeholder="¿En qué podemos ayudarte?"
+                class="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-brand-500 transition text-sm resize-none"
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3.5 rounded-xl transition text-sm"
+            >
+              Enviar mensaje
+            </button>
+          </form>
+        </div>
+
+        <!-- Info de contacto -->
+        <div class="md:col-span-2 flex flex-col justify-center gap-6">
+          <div class="bg-gray-900 rounded-2xl p-6 card-glow">
+            <div class="flex items-center gap-4 mb-3">
+              <div class="w-10 h-10 bg-brand-900/50 rounded-full flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+              </div>
+              <p class="text-sm font-semibold text-gray-300">Correo electrónico</p>
+            </div>
+            <a href="mailto:saasnegocio@gmail.com" class="text-brand-400 hover:text-brand-300 text-sm font-medium transition break-all">
+              saasnegocio@gmail.com
+            </a>
+          </div>
+
+          <div class="bg-gray-900 rounded-2xl p-6 card-glow">
+            <div class="flex items-center gap-4 mb-3">
+              <div class="w-10 h-10 bg-brand-900/50 rounded-full flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <p class="text-sm font-semibold text-gray-300">Tiempo de respuesta</p>
+            </div>
+            <p class="text-gray-400 text-sm">Menos de 24 horas hábiles<br/>(Lunes a Viernes)</p>
+          </div>
+
+          <div class="bg-gray-900 rounded-2xl p-6 card-glow">
+            <div class="flex items-center gap-4 mb-3">
+              <div class="w-10 h-10 bg-brand-900/50 rounded-full flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                </svg>
+              </div>
+              <p class="text-sm font-semibold text-gray-300">Pagos seguros</p>
+            </div>
+            <p class="text-gray-400 text-sm">Procesados con Stripe.<br/>Certificación PCI-DSS.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ SECCIÓN LEGAL ════════════════════════════════ -->
+
+  <!-- ── 1. Política de Disputas y Reembolsos ─────────────────────────── -->
+  <section id="reembolsos" class="py-20 px-6 bg-gray-950">
+    <div class="max-w-3xl mx-auto legal-section">
+      <div class="flex items-center gap-3 mb-8">
+        <div class="w-1 h-10 bg-brand-500 rounded-full"></div>
+        <h2 class="text-2xl font-black text-white">Política de disputas y reembolsos</h2>
+      </div>
+      <p>
+        Última actualización: enero 2026. SaasNegocio se compromete a resolver cualquier disputa
+        de manera justa, transparente y en los plazos indicados a continuación.
+      </p>
+
+      <h3>1. Cobros a los que aplica esta política</h3>
+      <p>
+        Esta política aplica únicamente a los cargos de <strong>suscripción mensual</strong> realizados por
+        SaasNegocio a sus clientes (estudios de tatuajes o artistas individuales). Los anticipos cobrados
+        por los estudios a sus propios clientes finales son responsabilidad exclusiva del estudio
+        contratante y están fuera del alcance de esta política.
+      </p>
+
+      <h3>2. Cuándo procede un reembolso</h3>
+      <ul>
+        <li><strong>Error técnico de doble cobro:</strong> Si por un fallo del sistema se realiza más de un cargo en el mismo período de facturación, se reembolsa íntegramente el cargo duplicado.</li>
+        <li><strong>Cobro tras cancelación confirmada:</strong> Si se realiza un cargo después de que el cliente haya cancelado su suscripción y exista confirmación por correo, se reembolsa el monto cobrado en exceso.</li>
+        <li><strong>Falla grave y prolongada del servicio:</strong> Si la plataforma presenta una interrupción total de más de 72 horas consecutivas dentro de un período facturado, el cliente puede solicitar un crédito o reembolso proporcional a los días no disponibles.</li>
+      </ul>
+
+      <h3>3. Cuándo no procede un reembolso</h3>
+      <ul>
+        <li>Cambio de opinión o decisión de no utilizar el servicio tras haberlo activado.</li>
+        <li>Cancelación solicitada antes de que venza el período en curso (el servicio permanece activo hasta el final del período ya pagado).</li>
+        <li>Falta de uso de las funcionalidades de la plataforma.</li>
+        <li>Incompatibilidad con dispositivos, sistemas operativos o versiones de WhatsApp no contempladas en los requisitos mínimos publicados.</li>
+      </ul>
+
+      <h3>4. Cómo solicitar un reembolso o abrir una disputa</h3>
+      <ul>
+        <li>Envía un correo a <a href="mailto:saasnegocio@gmail.com">saasnegocio@gmail.com</a> con el asunto <em>"Solicitud de reembolso"</em>.</li>
+        <li>Incluye: nombre completo, correo de la cuenta, fecha del cargo y descripción del motivo.</li>
+        <li>Recibirás una respuesta de acuse de recibo en un plazo máximo de <strong>2 días hábiles</strong>.</li>
+        <li>La resolución definitiva se emitirá en un plazo máximo de <strong>10 días hábiles</strong> a partir de la recepción de la solicitud.</li>
+        <li>Si el reembolso procede, se acreditará al método de pago original en un plazo de <strong>5 a 10 días hábiles</strong> adicionales, sujeto a los tiempos de procesamiento de Stripe y la institución bancaria.</li>
+      </ul>
+
+      <h3>5. Disputas bancarias (chargebacks)</h3>
+      <p>
+        Te invitamos a contactarnos directamente antes de abrir una disputa ante tu banco o institución
+        financiera. La mayoría de los casos se resuelven de forma ágil por correo. Si ya iniciaste un
+        proceso de contracargo, cooperaremos con la institución financiera proporcionando la documentación
+        de la transacción y del servicio prestado.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── 2. Política de Cancelaciones ──────────────────────────────────── -->
+  <section id="cancelaciones" class="py-20 px-6 bg-gray-900/40">
+    <div class="max-w-3xl mx-auto legal-section">
+      <div class="flex items-center gap-3 mb-8">
+        <div class="w-1 h-10 bg-brand-500 rounded-full"></div>
+        <h2 class="text-2xl font-black text-white">Política de cancelaciones</h2>
+      </div>
+      <p>
+        SaasNegocio funciona bajo un modelo de suscripción mensual renovable. No exigimos permanencia
+        mínima ni contratos de largo plazo. Puedes cancelar en cualquier momento bajo los términos
+        descritos a continuación.
+      </p>
+
+      <h3>1. Cómo cancelar tu suscripción</h3>
+      <ul>
+        <li>Envía un correo a <a href="mailto:saasnegocio@gmail.com">saasnegocio@gmail.com</a> con el asunto <em>"Cancelación de suscripción"</em> desde el correo asociado a tu cuenta.</li>
+        <li>Recibirás una confirmación de cancelación en un plazo de <strong>2 días hábiles</strong>. Guarda dicho correo como comprobante.</li>
+        <li>También puedes solicitarlo desde tu panel de administración (si aplica) siguiendo la opción "Cancelar plan".</li>
+      </ul>
+
+      <h3>2. ¿Cuándo surte efecto la cancelación?</h3>
+      <ul>
+        <li>La cancelación es efectiva al <strong>final del período de facturación en curso</strong>.</li>
+        <li>Ejemplo: si tu ciclo factura el día 5 de cada mes y cancelas el día 12, el servicio permanece activo hasta el día 4 del mes siguiente.</li>
+        <li>No se realizan cargos adicionales ni renovaciones automáticas después de la confirmación de cancelación.</li>
+      </ul>
+
+      <h3>3. Qué ocurre con tus datos al cancelar</h3>
+      <ul>
+        <li>Tus datos permanecerán accesibles por un período de <strong>30 días naturales</strong> tras la fecha efectiva de cancelación para que puedas exportarlos.</li>
+        <li>Transcurrido dicho período, los datos serán eliminados de manera permanente de nuestros servidores.</li>
+        <li>Si necesitas exportar tu información, contáctanos antes de que venza el período de gracia.</li>
+      </ul>
+
+      <h3>4. Cancelación por incumplimiento</h3>
+      <p>
+        SaasNegocio se reserva el derecho de suspender o cancelar el acceso a la plataforma, sin
+        reembolso, en caso de que el cliente incurra en uso fraudulento, incumpla los presentes Términos
+        y Condiciones, o realice actividades que puedan comprometer la seguridad o estabilidad del servicio.
+        En dichos casos, el cliente será notificado por correo electrónico.
+      </p>
+
+      <h3>5. Pausa del servicio</h3>
+      <p>
+        Si necesitas pausar temporalmente el servicio (por ejemplo, por cierre temporal del estudio),
+        escríbenos. Evaluaremos la posibilidad de aplicar un crédito o congelar la suscripción por hasta
+        30 días naturales, a criterio de SaasNegocio.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── 3. Términos y Condiciones de Uso ──────────────────────────────── -->
+  <section id="terminos" class="py-20 px-6 bg-gray-950">
+    <div class="max-w-3xl mx-auto legal-section">
+      <div class="flex items-center gap-3 mb-8">
+        <div class="w-1 h-10 bg-brand-500 rounded-full"></div>
+        <h2 class="text-2xl font-black text-white">Términos y condiciones de uso</h2>
+      </div>
+      <p>
+        Última actualización: enero 2026. Al activar una suscripción o utilizar cualquier funcionalidad
+        de SaasNegocio, el cliente acepta los presentes Términos y Condiciones en su totalidad.
+      </p>
+
+      <h3>1. Descripción del servicio</h3>
+      <p>
+        SaasNegocio es una plataforma de software como servicio (SaaS) que proporciona herramientas de
+        automatización de agendas para estudios de tatuajes, incluyendo: asistente de inteligencia
+        artificial por WhatsApp, gestión de citas, integración con Google Calendar y generación de links
+        de pago para anticipos mediante Stripe.
+      </p>
+
+      <h3>2. Registro y cuenta</h3>
+      <ul>
+        <li>El cliente es responsable de mantener la confidencialidad de sus credenciales de acceso.</li>
+        <li>Cada cuenta es personal e intransferible. El cliente no podrá ceder ni sublicenciar el acceso a terceros sin autorización previa por escrito.</li>
+        <li>El cliente garantiza que la información proporcionada al registrarse es veraz, exacta y actualizada.</li>
+      </ul>
+
+      <h3>3. Uso permitido</h3>
+      <p>El cliente se compromete a utilizar la plataforma únicamente para los fines descritos en la contratación del servicio y a no:</p>
+      <ul>
+        <li>Intentar acceder, modificar o interferir con los sistemas o datos de otros clientes.</li>
+        <li>Utilizar el servicio para actividades ilegales, fraudulentas o que infrinjan derechos de terceros.</li>
+        <li>Realizar ingeniería inversa, descompilar o intentar extraer el código fuente de la plataforma.</li>
+        <li>Enviar spam, contenido malicioso o mensajes masivos no solicitados a través del canal de WhatsApp.</li>
+        <li>Superar los límites de uso establecidos en el plan contratado de forma intencionada.</li>
+      </ul>
+
+      <h3>4. Pagos y facturación</h3>
+      <ul>
+        <li>El servicio se factura de manera mensual por adelantado mediante cargo automático al método de pago registrado.</li>
+        <li>Los precios están expresados en Pesos Mexicanos (MXN) e incluyen los impuestos aplicables.</li>
+        <li>SaasNegocio se reserva el derecho de modificar los precios con un aviso previo de al menos <strong>30 días naturales</strong> por correo electrónico. El precio vigente al momento de la renovación aplica a partir de esa fecha.</li>
+        <li>El procesamiento de pagos es realizado por Stripe, Inc. SaasNegocio no almacena datos de tarjetas bancarias.</li>
+      </ul>
+
+      <h3>5. Disponibilidad del servicio</h3>
+      <ul>
+        <li>SaasNegocio procura una disponibilidad del 99% mensual, excluyendo mantenimientos programados notificados con anticipación.</li>
+        <li>No garantizamos disponibilidad ininterrumpida ante eventos de fuerza mayor, fallos de proveedores de infraestructura o ataques externos.</li>
+        <li>Las interrupciones planificadas se comunicarán por correo electrónico con al menos 24 horas de anticipación.</li>
+      </ul>
+
+      <h3>6. Propiedad intelectual</h3>
+      <p>
+        Todo el software, diseño, algoritmos y contenido de la plataforma son propiedad exclusiva de
+        SaasNegocio o sus licenciantes. El cliente recibe una licencia limitada, no exclusiva e
+        intransferible para usar el servicio durante la vigencia de su suscripción.
+      </p>
+
+      <h3>7. Protección de datos</h3>
+      <p>
+        El tratamiento de datos personales se rige por nuestro
+        <a href="#privacidad">Aviso de Privacidad</a>. El cliente es responsable de obtener los
+        consentimientos necesarios de sus propios clientes finales para el uso de WhatsApp y el
+        almacenamiento de sus datos en la plataforma.
+      </p>
+
+      <h3>8. Limitación de responsabilidad</h3>
+      <p>
+        SaasNegocio no será responsable por daños indirectos, incidentales, lucro cesante ni pérdida
+        de datos derivados del uso o imposibilidad de uso del servicio. La responsabilidad máxima
+        acumulada de SaasNegocio ante el cliente no excederá el monto pagado en los últimos 3 meses
+        de suscripción.
+      </p>
+
+      <h3>9. Modificaciones a los términos</h3>
+      <p>
+        SaasNegocio puede actualizar estos Términos en cualquier momento. Los cambios serán notificados
+        por correo electrónico con al menos <strong>15 días de anticipación</strong>. El uso continuado
+        del servicio tras esa fecha implica la aceptación de los nuevos términos. Si el cliente no está
+        de acuerdo, puede cancelar su suscripción sin penalización antes de la fecha de entrada en vigor.
+      </p>
+
+      <h3>10. Ley aplicable y jurisdicción</h3>
+      <p>
+        Estos Términos se rigen por las leyes de los Estados Unidos Mexicanos. Cualquier controversia
+        que no pueda resolverse de mutuo acuerdo se someterá a la jurisdicción de los tribunales
+        competentes de la Ciudad de México, renunciando las partes a cualquier otro fuero que pudiera
+        corresponderles.
+      </p>
+
+      <h3>11. Contacto legal</h3>
+      <p>
+        Para cualquier consulta relacionada con estos Términos, escríbenos a
+        <a href="mailto:saasnegocio@gmail.com">saasnegocio@gmail.com</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── Aviso de Privacidad ────────────────────────────────────────────── -->
+  <section id="privacidad" class="py-20 px-6 bg-gray-900/30">
+    <div class="max-w-3xl mx-auto legal-section">
+      <div class="flex items-center gap-3 mb-8">
+        <div class="w-1 h-10 bg-brand-500 rounded-full"></div>
+        <h2 class="text-2xl font-black text-white">Aviso de privacidad</h2>
+      </div>
+
+      <h3>Responsable</h3>
+      <p>SaasNegocio — <a href="mailto:saasnegocio@gmail.com">saasnegocio@gmail.com</a></p>
+
+      <h3>Datos que recopilamos</h3>
+      <p>Nombre, correo electrónico, número de teléfono y datos de uso de la plataforma proporcionados
+      al registrarse o utilizar el servicio.</p>
+
+      <h3>Finalidad</h3>
+      <p>Provisión del servicio SaaS contratado, facturación, comunicación sobre el servicio y mejora
+      de la plataforma.</p>
+
+      <h3>Terceros</h3>
+      <p>Compartimos datos estrictamente necesarios con proveedores de infraestructura (procesadores
+      de pago, servicios de mensajería, almacenamiento en la nube) bajo acuerdos de confidencialidad.
+      No vendemos datos personales a terceros.</p>
+
+      <h3>Procesamiento de pagos</h3>
+      <p>Los pagos son procesados por Stripe, Inc. Los datos de tarjeta nunca son almacenados en
+      nuestros servidores. Consulta la política de privacidad de Stripe en
+      <a href="https://stripe.com/privacy" target="_blank" rel="noopener">stripe.com/privacy</a>.</p>
+
+      <h3>Derechos ARCO</h3>
+      <p>Puedes solicitar acceso, rectificación, cancelación u oposición al tratamiento de tus datos
+      escribiendo a <a href="mailto:saasnegocio@gmail.com">saasnegocio@gmail.com</a>. Atenderemos
+      tu solicitud en un plazo máximo de 20 días hábiles.</p>
+
+      <h3>Retención de datos</h3>
+      <p>Conservamos los datos mientras la relación comercial esté activa y durante el período que
+      exija la legislación aplicable, o hasta 30 días naturales tras la cancelación de la cuenta.</p>
+    </div>
+  </section>
+
+  <!-- ────────────────────────────── FOOTER ────────────────────────────── -->
+  <footer class="bg-gray-950 border-t border-gray-800 py-10 px-6">
+    <div class="max-w-6xl mx-auto space-y-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 text-sm text-gray-500">
+        <div class="flex items-center gap-2">
+          <span class="text-white font-bold text-lg">Saas<span class="text-brand-500">Negocio</span></span>
+          <span class="hidden md:inline">—</span>
+          <span class="hidden md:inline">Automatización de citas para estudios de tatuajes</span>
+        </div>
+        <div class="flex flex-wrap gap-x-6 gap-y-2 justify-center text-center">
+          <a href="#servicios"     class="hover:text-gray-300 transition">Servicios</a>
+          <a href="#precios"       class="hover:text-gray-300 transition">Precios</a>
+          <a href="#contacto"      class="hover:text-gray-300 transition">Contacto</a>
+          <a href="#reembolsos"    class="hover:text-gray-300 transition">Reembolsos</a>
+          <a href="#cancelaciones" class="hover:text-gray-300 transition">Cancelaciones</a>
+          <a href="#terminos"      class="hover:text-gray-300 transition">Términos</a>
+          <a href="#privacidad"    class="hover:text-gray-300 transition">Privacidad</a>
+        </div>
+      </div>
+      <p class="text-center text-xs text-gray-600">
+        &copy; 2026 SaasNegocio. Todos los derechos reservados. &nbsp;|&nbsp;
+        Pagos procesados de forma segura por
+        <a href="https://stripe.com" target="_blank" rel="noopener" class="hover:text-gray-400 transition">Stripe</a>.
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(psql:*)",
+      "Bash(supabase:*)",
+      "Bash(node:*)",
+      "Bash(curl:*)",
+      "Bash(npm:*)",
+      "Bash(netstat:*)",
+      "Bash(cmd.exe:*)",
+      "Bash(__NEW_LINE_cae7bb94dc9ab54a__ echo:*)",
+      "Bash(where n8n:*)",
+      "Bash(source:*)",
+      "WebSearch",
+      "Bash(pm2:*)"
+    ]
+  }
+}
