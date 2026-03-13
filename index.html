@@ -27,15 +27,40 @@
     .legal-section ul   { list-style: disc; padding-left: 1.5rem; }
     .legal-section a    { color: #c084fc; }
     .legal-section a:hover { text-decoration: underline; }
+    .nav-logo {
+      height: 80px;
+      width: auto;
+      object-fit: contain;
+      mix-blend-mode: screen;
+    }
+    .nav-logo-link {
+      display: inline-flex;
+      align-items: center;
+      line-height: 0;
+    }
+    @media (max-width: 768px) {
+      .nav-logo { height: 60px; }
+    }
+    .logo-gradient {
+      background: linear-gradient(90deg, #7c3aed, #22d3ee);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
   </style>
 </head>
 <body class="bg-gray-950 text-gray-100 font-sans antialiased">
 
   <!-- ──────────────────────────── NAVBAR ───────────────────────────────── -->
   <header class="sticky top-0 z-50 bg-gray-950/90 backdrop-blur border-b border-gray-800">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="#inicio" class="text-2xl font-black tracking-tight text-white">
-        Saas<span class="text-brand-500">Negocio</span>
+    <div class="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
+      <a href="#inicio" class="nav-logo-link group">
+        <img
+          src="/logo-completo.png"
+          alt="SaasNegocio Logo"
+          class="nav-logo transition-all duration-300 group-hover:brightness-110"
+        />
       </a>
       <nav class="hidden md:flex items-center gap-8 text-sm text-gray-400">
         <a href="#servicios"     class="hover:text-white transition">Servicios</a>
@@ -584,7 +609,14 @@
     <div class="max-w-6xl mx-auto space-y-6">
       <div class="flex flex-col md:flex-row items-center justify-between gap-6 text-sm text-gray-500">
         <div class="flex items-center gap-2">
-          <span class="text-white font-bold text-lg">Saas<span class="text-brand-500">Negocio</span></span>
+          <a href="#inicio" class="nav-logo-link group">
+            <img
+              src="/logo-completo.png"
+              alt="SaasNegocio Logo"
+              class="nav-logo transition-all duration-300 group-hover:brightness-110"
+              style="height:50px"
+            />
+          </a>
           <span class="hidden md:inline">—</span>
           <span class="hidden md:inline">Automatización de citas para estudios de tatuajes</span>
         </div>

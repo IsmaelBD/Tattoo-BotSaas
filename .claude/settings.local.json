@@ -12,7 +12,9 @@
       "Bash(where n8n:*)",
       "Bash(source:*)",
       "WebSearch",
-      "Bash(pm2:*)"
+      "Bash(pm2:*)",
+      "Bash(sed:*)",
+      "Bash(ls:*)"
     ]
   }
 }
