@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pago cancelado</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0a0a0a;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: #fff;
+      text-align: center;
+      padding: 24px;
+    }
+    .card {
+      max-width: 420px;
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 16px;
+      padding: 48px 32px;
+    }
+    .icon { font-size: 64px; margin-bottom: 24px; }
+    h1 { font-size: 24px; font-weight: 700; margin-bottom: 12px; }
+    p { font-size: 15px; color: #aaa; line-height: 1.6; margin-bottom: 8px; }
+    .highlight { color: #f97316; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="icon">↩️</div>
+    <h1>Pago no completado</h1>
+    <p>No se realizó ningún cargo a tu tarjeta.</p>
+    <p>Si quieres agendar tu cita, <span class="highlight">regresa al chat de WhatsApp</span> y pídenos un nuevo link de pago.</p>
+    <p style="margin-top: 24px; font-size: 13px; color: #666;">Puedes cerrar esta ventana.</p>
+  </div>
+</body>
+</html>
